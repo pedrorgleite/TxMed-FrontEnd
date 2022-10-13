@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:txmed/Screens/Home/homeScreen.dart';
 import 'package:txmed/Screens/Login/login_screen.dart';
 import 'package:txmed/Screens/Singup/signup_screen.dart';
+import 'Screens/Home/patientScreen.dart';
 import 'Screens/Welcome/welcome_screen.dart';
 import 'constants.dart';
 
@@ -8,11 +10,8 @@ typedef PathWidgetBuilder = Widget Function(BuildContext);
 
 class Path {
   const Path(this.pattern, this.builder, {this.openInSecondScreen = false});
-
   final String pattern;
-
   final PathWidgetBuilder builder;
-
   final bool openInSecondScreen;
 }
 
@@ -36,6 +35,15 @@ class RouteConfiguration {
     Path(
       '/signup',
       (context) => const SignupScreen(),
+      openInSecondScreen: false,
+    ),Path(
+      '/homeScreen',
+      (context) => const HomeScreen(),
+      openInSecondScreen: false,
+    ),
+    Path(
+      '/patientScreen',
+      (context) => const PatientScreen(),
       openInSecondScreen: false,
     ),
   ];
